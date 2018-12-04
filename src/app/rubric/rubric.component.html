@@ -1,0 +1,57 @@
+<form novalidate>
+  <ion-item>
+    <ion-label position="floating">Beoordelaar</ion-label>
+    <ion-input required type="text" [(ngModel)]="beoordelaar" name="beoordelaar"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Voornaam</ion-label><br/>
+    <ion-input required type="text" [(ngModel)]="voornaam" name="voornaam"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Opleverdocument</ion-label>(5 punten)
+    <ion-range (ngModel)="opleverdocument" name="opleverdocument" min="1" max="10" step="1" snaps="true">
+      <ion-icon slot="end" name="thumbs-up"></ion-icon>
+    </ion-range>
+  </ion-item>
+  <ion-item>
+    <ion-label>Bestanden</ion-label>(10 punten)
+  </ion-item>
+  <ion-item>
+    <ion-range [(ngModel)]="bestandScore.beoordeling" [name]="bestandScore.itemNaam" min="1" max="10" step="1" snaps="true">
+      <ion-icon slot="end" name="thumbs-up" [ngStyle]="animationInstance"></ion-icon>
+    </ion-range>
+    <ion-label slot="end">{{ bestandScore.beoordeling }}</ion-label>
+  </ion-item>
+  <pre>
+      bestandScore {{ bestandScore | json }}
+      .thumbRotationDegrees(): {{ bestandScore.thumbRotationDegrees() }}
+      .thumbExtraUpPixels(): {{ bestandScore.thumbExtraUpPixels() }}
+      .thumbExtraDownPixels(): {{ bestandScore.thumbExtraDownPixels() }}
+      .thumbTranslateY(): {{ bestandScore.thumbTranslateY() }}
+      animationInstance: {{ animationInstance | json }}
+  </pre>
+  <ion-item>
+    <ion-label>Inhoud</ion-label>(20 punten)
+    <ion-range min="1" max="10" step="1" snaps="true">
+      <ion-icon slot="end" name="thumbs-up"></ion-icon>
+    </ion-range>
+  </ion-item>
+  <ion-item text-wrap>
+    <ion-label>
+      <ul>
+        <li>Thema is duidelijk</li>
+        <li>Stijl is aangepast aan thema</li>
+        <li>Gebruik van stijlelementen (logo, kleuren, achtergronden, grafische elementen)</li>
+        <li>Pagina lay-out</li>
+        <li>De inhoud van de pagina's klopt</li>
+        <li>Nederlandstalige kopjes en teksten</li>
+        <li>Navigatie</li>
+        <li>Formulier</li>
+      </ul>
+    </ion-label>
+  </ion-item>
+  <ion-item >
+    <ion-label>Toggle</ion-label>
+    <ion-toggle slot="end" checked></ion-toggle>
+  </ion-item>
+</form>
